@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1479601404251225346}
   - component: {fileID: 2481856567018513872}
   - component: {fileID: 4800195959346040045}
+  - component: {fileID: 3975493625169635278}
   m_Layer: 0
   m_Name: Strand
   m_TagString: Untagged
@@ -101,11 +102,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2481856567018513871}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8853cea5e27c87448a0baa3b357de24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  center_power: 100
+  evade_distance: 0.2
+  direction_power: 8
+  follow_power: 100
 --- !u!54 &2481856567018513872
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -235,3 +240,15 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &3975493625169635278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2481856567018513871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e3b34f3e565ac34290fcd9a9a80dac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

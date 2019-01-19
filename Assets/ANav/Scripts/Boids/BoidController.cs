@@ -3,6 +3,11 @@ using System.Collections;
  
 public class BoidController : MonoBehaviour
 {
+    public float center_power = 100;
+    public float evade_distance = 0.2f;
+    public float direction_power = 8;
+    public float follow_power = 100;
+
     public float minVelocity = 5;
     public float maxVelocity = 20;
     public float randomness = 1;
@@ -13,10 +18,11 @@ public class BoidController : MonoBehaviour
     public Vector3 flockCenter;
     public Vector3 flockVelocity;
  
-    private GameObject[] boids;
- 
+    public GameObject[] boids;
+
     void Start()
     {
+
         boids = new GameObject[flockSize];
         for (var i=0; i<flockSize; i++)
         {

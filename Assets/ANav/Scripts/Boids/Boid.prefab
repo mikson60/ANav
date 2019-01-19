@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1479601404251225346}
   - component: {fileID: 2481856567018513872}
   - component: {fileID: 4800195959346040045}
+  - component: {fileID: 4855611726697876326}
   m_Layer: 0
   m_Name: Boid
   m_TagString: Untagged
@@ -160,7 +161,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 5
+  m_Time: 0.1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -226,3 +227,15 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &4855611726697876326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2481856567018513871}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e3b34f3e565ac34290fcd9a9a80dac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
