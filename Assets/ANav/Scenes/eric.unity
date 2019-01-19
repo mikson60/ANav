@@ -278,7 +278,7 @@ PrefabInstance:
     - target: {fileID: 6414382620780687646, guid: dde6ba976c711d7448c4363a9ffb9527,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6414382620780687619, guid: dde6ba976c711d7448c4363a9ffb9527,
         type: 3}
@@ -340,6 +340,41 @@ PrefabInstance:
       propertyPath: chasee
       value: 
       objectReference: {fileID: 2056825148}
+    - target: {fileID: 6414382620780687647, guid: dde6ba976c711d7448c4363a9ffb9527,
+        type: 3}
+      propertyPath: center_power
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414382620780687647, guid: dde6ba976c711d7448c4363a9ffb9527,
+        type: 3}
+      propertyPath: evade_distance
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414382620780687647, guid: dde6ba976c711d7448c4363a9ffb9527,
+        type: 3}
+      propertyPath: direction_power
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414382620780687647, guid: dde6ba976c711d7448c4363a9ffb9527,
+        type: 3}
+      propertyPath: follow_power
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414382620780687647, guid: dde6ba976c711d7448c4363a9ffb9527,
+        type: 3}
+      propertyPath: maxVelocity
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414382620780687647, guid: dde6ba976c711d7448c4363a9ffb9527,
+        type: 3}
+      propertyPath: randomness
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414382620780687647, guid: dde6ba976c711d7448c4363a9ffb9527,
+        type: 3}
+      propertyPath: flockSize
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dde6ba976c711d7448c4363a9ffb9527, type: 3}
 --- !u!1001 &1932951863
@@ -353,6 +388,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Spawner (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414382620780687646, guid: dde6ba976c711d7448c4363a9ffb9527,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6414382620780687619, guid: dde6ba976c711d7448c4363a9ffb9527,
         type: 3}

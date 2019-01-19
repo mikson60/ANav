@@ -102,15 +102,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2481856567018513871}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8853cea5e27c87448a0baa3b357de24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  center_power: 100
-  evade_distance: 0.2
-  direction_power: 8
-  follow_power: 100
 --- !u!54 &2481856567018513872
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -165,7 +161,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 10
+  m_Time: 5
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -205,7 +201,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 0, g: 0.19598287, b: 0.26415092, a: 0}
-      key1: {r: 0.23584908, g: 0.07075473, b: 0, a: 1}
+      key1: {r: 0.23584908, g: 0.07075473, b: 0, a: 0.627451}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -247,7 +243,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2481856567018513871}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e3b34f3e565ac34290fcd9a9a80dac0, type: 3}
   m_Name: 
