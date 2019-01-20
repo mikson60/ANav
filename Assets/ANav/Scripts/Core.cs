@@ -1,16 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Core : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private void Start()
+    {
+        GenerateInitialOctree();
+    }
+
+    private void GenerateInitialOctree()
+    {
+        foreach (OctreeItem octreeItem in FindObjectsOfType<OctreeItem>())
+        {
+            OctreeNode.OctreeRoot.ProcessItem(octreeItem);
+        }
+    }
 }
