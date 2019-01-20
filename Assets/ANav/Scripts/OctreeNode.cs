@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class OctreeNode {
     public static int maxObjectLimit = 0; // # of contained items before split
-    public static int maxDepth = 5;
+    public static int maxDepth = 3;
 
     static private OctreeNode _octreeRoot;
     static public OctreeNode OctreeRoot
@@ -45,7 +45,8 @@ public class OctreeNode {
     [RuntimeInitializeOnLoadMethod]
     static bool Init()
     {
-        return OctreeRoot == null;
+        return true;
+        // return OctreeRoot == null;
     }
 
     public OctreeNode(OctreeNode parent, Vector3 pos, float halfDimensionLength, int depth, List<OctreeItem> potentialItems)

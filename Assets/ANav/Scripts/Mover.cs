@@ -2,6 +2,8 @@
 
 public class Mover : MonoBehaviour {
 
+    [SerializeField] Core core;
+
     private Material lastCubeMaterial;
     private Transform lastCubeTransform;
 
@@ -22,6 +24,15 @@ public class Mover : MonoBehaviour {
         }
 
         RaycastHit hit;
+
+        if (Input.GetKeyDown(KeyCode.F)) // Press F to pay respects
+        {
+            if (core != null)
+            {
+                core.StopAllCoroutines();
+                core.StartCoroutine(core.RushToMover());
+            }
+        }
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, 100f))
         {
@@ -59,6 +70,7 @@ public class Mover : MonoBehaviour {
                 {
                     cubeRb.AddForce(transform.forward * 150f);
                 }
+                
             }
         }
         else
