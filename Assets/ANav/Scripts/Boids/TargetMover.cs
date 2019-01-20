@@ -7,27 +7,27 @@ public class TargetMover : MonoBehaviour {
     //public float scale = 1f;
     public float speed = 1f;
 
-    public Queue<Vector3> path = new Queue<Vector3>();
+    private Queue<Vector3> path = new Queue<Vector3>();
     private Vector3 target;
 
-    public List<Vector3> pathway;
-
     public BoidController Controller;
-    public float speed_weight;
+    private float speed_weight;
+
+    private bool stackLock = false;
 
     private void Start()
     {
         speed = Controller.maxVelocity * 2;
+        target = transform.position;
     }
 
-    // Update is called once per frame
+    // Update is called once per frame 
     void Update () {
-        //transform.Translate(0, 0, Time.deltaTime * speed * scale); // move forward
-        //transform.Rotate(0, Time.deltaTime * speed, 0); // turn a little
-        if (path.Count == 0) if (fillStack()) return;
-        if (target == null) target = path.Dequeue();
-        if (Vector3.Distance(transform.position, target) < 0.01f) target = path.Dequeue();
-
+        if (!stackLock && path.Count > 0)
+        {
+            if (target == null) target = path.Dequeue();
+            if (Vector3.Distance(transform.position, target) < 0.01f) target = path.Dequeue();
+        }
 
         speed_weight = Mathf.Max(Vector3.Distance(Controller.flockCenter, transform.position), 1f);
         if (Vector3.Distance(Controller.flockCenter, transform.position) < Vector3.Distance(Controller.flockCenter, target))
@@ -44,10 +44,12 @@ public class TargetMover : MonoBehaviour {
         
     }
 
-    private bool fillStack()
+    public void AddPath(Stack<Vector3> AStarPath)
     {
-        if (pathway.Count == 0) return false;
-        foreach (Vector3 point in pathway) path.Enqueue(point);
-        return true;
+        stackLock = true;
+        path.Clear();
+        while (AStarPath.Count > 0) path.Enqueue(AStarPath.Pop());
+        stackLock = false;
     }
+
 }
