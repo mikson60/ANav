@@ -37,6 +37,7 @@ public class Core : MonoBehaviour {
         if (targetMover != null)
         {
             // Debug.Log(uniformGrid.path.Count);
+            targetMover.AddPath(uniformGrid.path);
         }
     }
 

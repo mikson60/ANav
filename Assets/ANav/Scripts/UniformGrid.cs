@@ -42,7 +42,7 @@ public class UniformGrid : MonoBehaviour {
             {
                 for (ushort z = 0; z < maxGridSizeZ; z++)
                 {
-                    gridNodes[x, y, z] = new UniformGridNode(x, y, z, Mathf.Infinity, cellSize / 2f, Mathf.Infinity, new GameObject());
+                    gridNodes[x, y, z] = new UniformGridNode(x, y, z, Mathf.Infinity, cellSize / 4f, Mathf.Infinity, new GameObject());
                 }
             }
         }
@@ -75,7 +75,6 @@ public class UniformGrid : MonoBehaviour {
                         gridNodes[x, y, z].g = Mathf.Infinity;
                         gridNodes[x, y, z].parents.Clear();
                         gridNodes[x, y, z].CalculateDistanceToEnd(endX, endY, endZ);
-                        Debug.Log(gridNodes[x, y, z].e_distance);
                     }
                 }
             }
@@ -92,7 +91,7 @@ public class UniformGrid : MonoBehaviour {
 
         while (openList.Count > 0)
         {
-            yield return new WaitForSeconds(0.0001f);
+            yield return new WaitForSeconds(0.01f);
 
             UniformGridNode currentNode = GetHighestPriorityNode(openList);
             openList.Remove(currentNode);
@@ -105,18 +104,19 @@ public class UniformGrid : MonoBehaviour {
                 break;
             }
 
-            // Debug.Log("Current is: " + currentNode.toString());
-            // Debug.LogFormat("Current g ({0}) and e_dist ({1})", currentNode.g, currentNode.e_distance);
+            //Debug.Log("Current is: " + currentNode.toString());
+            //Debug.LogFormat("Current g ({0}) and e_dist ({1})", currentNode.g, currentNode.e_distance);
             foreach (UniformGridNode neighbour in GetNeighboursNonDiagonal(currentNode))
             {
-                // Debug.Log("Neighbour: " + neighbour.toString());
-                // Debug.Log("Neighbour g: " + neighbour.g);
+                //Debug.Log("Neighbour: " + neighbour.toString());
+                //Debug.Log("Neighbour g: " + neighbour.g);
+                //Debug.Log("Neighbour e: " + neighbour.e_distance);
                 if (NodeListContains(openList, neighbour))
                 {
-                    // Debug.Log("Open contains");
+                    //Debug.Log("Open contains");
                     if (currentNode.g + neighbour.travelCost < neighbour.g)
                     {
-                        // Debug.Log("Updated open");
+                        //Debug.Log("Updated open");
                         neighbour.g = currentNode.g + neighbour.travelCost;
                         neighbour.parents.Clear();
                         neighbour.parents.Add(currentNode);
@@ -124,10 +124,10 @@ public class UniformGrid : MonoBehaviour {
                 }
                 else if (NodeListContains(closedList, neighbour))
                 {
-                    // Debug.Log("Closed contains");
+                    //Debug.Log("Closed contains");
                     if (currentNode.g + neighbour.travelCost < neighbour.g)
                     {
-                        // Debug.LogFormat("Closed g ({0}) and e_dist ({1})", neighbour.g, neighbour.e_distance);
+                        //Debug.LogFormat("Closed g ({0}) and e_dist ({1})", neighbour.g, neighbour.e_distance);
                         // Debug.Log("Updated closed");
                         neighbour.g = currentNode.g + neighbour.travelCost;
                         neighbour.parents.Clear();
@@ -147,7 +147,7 @@ public class UniformGrid : MonoBehaviour {
             }
         }
 
-        Debug.Log("We got the path!");
+        //Debug.Log("We got the path!");
 
         // Debug.Log("here:::: " + gridNodes[0,0,0].parents.Count);
 
@@ -286,7 +286,7 @@ class UniformGridNode
         //float dz = Mathf.Abs(end_z - z);
 
 
-        //e_distance =  Mathf.Sqrt(dx * dx + dy * dy + dz * dz);
+        //e_distance = Mathf.Sqrt(dx * dx + dy * dy + dz * dz);
 
         // Manhattan
         e_distance = Mathf.Abs(end_x - x) + Mathf.Abs(end_y - y) + Mathf.Abs(end_z - z);
