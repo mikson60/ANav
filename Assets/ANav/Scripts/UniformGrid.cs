@@ -75,6 +75,7 @@ public class UniformGrid : MonoBehaviour {
                         gridNodes[x, y, z].g = Mathf.Infinity;
                         gridNodes[x, y, z].parents.Clear();
                         gridNodes[x, y, z].CalculateDistanceToEnd(endX, endY, endZ);
+                        Debug.Log(gridNodes[x, y, z].e_distance);
                     }
                 }
             }
