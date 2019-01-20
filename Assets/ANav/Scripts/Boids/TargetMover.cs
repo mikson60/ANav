@@ -12,6 +12,14 @@ public class TargetMover : MonoBehaviour {
 
     public List<Vector3> pathway;
 
+    public BoidController Controller;
+    public float speed_weight;
+
+    private void Start()
+    {
+        speed = Controller.maxVelocity * 2;
+    }
+
     // Update is called once per frame
     void Update () {
         //transform.Translate(0, 0, Time.deltaTime * speed * scale); // move forward
@@ -21,11 +29,18 @@ public class TargetMover : MonoBehaviour {
         if (Vector3.Distance(transform.position, target) < 0.01f) target = path.Dequeue();
 
 
-            // The step size is equal to speed times frame time.
-        float step = speed * Time.deltaTime;
+        speed_weight = Mathf.Max(Vector3.Distance(Controller.flockCenter, transform.position), 1f);
+        if (Vector3.Distance(Controller.flockCenter, transform.position) < Vector3.Distance(Controller.flockCenter, target))
+            speed_weight = 1.0f / speed_weight;
+        
+
+        // The step size is equal to speed times frame time.
+        float step = speed_weight * speed * Time.deltaTime;
 
         // Move our position a step closer to the target.
         transform.position = Vector3.MoveTowards(transform.position, target, step);
+
+
         
     }
 
