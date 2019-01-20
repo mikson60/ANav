@@ -91,7 +91,7 @@ public class UniformGrid : MonoBehaviour {
 
         while (openList.Count > 0)
         {
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.0000001f);
 
             UniformGridNode currentNode = GetHighestPriorityNode(openList);
             openList.Remove(currentNode);
@@ -155,9 +155,9 @@ public class UniformGrid : MonoBehaviour {
 
         while (endNode.parents.Count > 0 && breakCounter > 0)
         {
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.000001f);
             endNode.ChangeLRColor(Color.cyan);
-            path.Push(new Vector3(endNode.x, endNode.y, endNode.z));
+            path.Push(new Vector3(endNode.x * cellSize, endNode.y * cellSize, endNode.z * cellSize));
 
             // Debug.Log("(" + endNode.parents[0].x + "," + endNode.parents[0].y + "," + endNode.parents[0].z + ")");
             // Debug.Log("g val: " + endNode.g);
