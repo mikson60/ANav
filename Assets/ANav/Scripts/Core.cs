@@ -6,6 +6,7 @@ public class Core : MonoBehaviour {
 
     [SerializeField] Mover mover;
     [SerializeField] UniformGrid uniformGrid;
+    [SerializeField] TargetMover targetMover;
 
     private void Start()
     {
@@ -33,7 +34,10 @@ public class Core : MonoBehaviour {
         yield return uniformGrid.StartCoroutine(uniformGrid.FindPathRoutine(Vector3.zero, mover.transform.position));
 
         // Start moving the swarm here.
-        Stack<Vector3> pathFromStartToEnd = uniformGrid.path;
+        if (targetMover != null)
+        {
+            // Debug.Log(uniformGrid.path.Count);
+        }
     }
 
     public void StopAllCoroutines()
