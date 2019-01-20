@@ -31,7 +31,7 @@ public class Core : MonoBehaviour {
         if (mover == null) { Debug.LogError("Mover is not specified"); }
 
         // Start pos is swarm current pos.
-        yield return uniformGrid.StartCoroutine(uniformGrid.FindPathRoutine(Vector3.zero, mover.transform.position));
+        yield return uniformGrid.StartCoroutine(uniformGrid.FindPathRoutine(targetMover.transform.position, mover.transform.position));
 
         // Start moving the swarm here.
         if (targetMover != null)

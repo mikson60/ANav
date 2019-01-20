@@ -384,9 +384,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167c230968f4c3641946e6d3b38491a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxGridSizeX: 10
-  maxGridSizeY: 10
-  maxGridSizeZ: 10
+  maxGridSizeX: 20
+  maxGridSizeY: 20
+  maxGridSizeZ: 20
 --- !u!1 &1270873117
 GameObject:
   m_ObjectHideFlags: 0
